@@ -1,0 +1,55 @@
+RasPi Commands / Ops after initial power on.
+
+ETH0:
+DHCP
+
+Hostname:
+RasPiEnvOne
+RasPiEnvTwo
+
+System Update:
+sudo apt-get update
+sudo apt-get upgrade
+
+RasPi settings:
+enable I2C and single wire
+
+Remote Desktop:
+sudo apt-get install xrdp
+
+Temperatur Sensor:
+
+sudo modprobe w1-gpio
+sudo modprobe w1-therm
+
+sudo nano /boot/config.txt
+dtoverlay=w1-gpio,gpioin=4,pullup=on
+
+lsmod
+
+sudo nano /etc/modules
+w1_gpio
+w1_therm
+
+cd /sys/bus/w1/devices/
+ls
+
+cat /sys/bus/w1/devices/10-000802b4ba0e/w1_slave
+
+Luftdruck Sensor:
+
+Python Script -> /home/pi/Documents/bme280.py
+Sensor Data -> /home/pi/Documents/BME280_Data/ (Update jede Minute)
+Cron Log -> /tmp/listener.log
+
+Crontab setting:
+* * * * * /usr/bin/python /home/pi/Documents/bme280.py > /tmp/listener.log 2>&1
+
+
+
+Tips:
+
+libapache nicht vergessen
+sudo apt-get install apache2
+sudo apt-get install php
+sudo i2cdetect -y 1

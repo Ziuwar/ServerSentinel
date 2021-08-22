@@ -1,0 +1,12 @@
+Temperature
+21.748
+C
+Pressure
+974.99413337
+hPa
+Humidity
+49.0324195146
+%
+Timestamp
+2020-10-15 14:23
+YYYY-MM-DD hh:mm

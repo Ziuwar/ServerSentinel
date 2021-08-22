@@ -1,0 +1,2 @@
+Chip ID: 96
+Version: 0

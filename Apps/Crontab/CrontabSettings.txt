@@ -1,0 +1,10 @@
+#--------------------------------------------------------------------
+# Shell variable for cron
+SHELL=/bin/bash
+# PATH variable for cron
+PATH=/usr/local/bin:/user/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin:/usr/bin/X11
+#M   S   T M W Command
+#--------------------------------------------------------------------
+ *   *   * * * /usr/bin/python /home/pi/Documents/bme280.py > /tmp/bme280-listener.log 2>&1
+ *   *   * * * /usr/bin/python /home/pi/Documents/Display/I2C-LCD/LCD.py > /tmp/LCD-listener.log 2>&1
+*/5  *   * * * /usr/bin/python /home/pi/Documents/SensorLog/CreateLog.py > /tmp/Log-listener.log 2>&1
